@@ -1,4 +1,3 @@
-pipeline {
 podTemplate(
     name: 'influxdb-builder',
     label: 'influxdb-builder',
@@ -21,6 +20,5 @@ checkout scm
 	    sh "pwd ; ls -l ; docker build -t test ."
         }
     }
-}
 }
 }
