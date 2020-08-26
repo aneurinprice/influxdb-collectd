@@ -1,9 +1,7 @@
 podTemplate(yaml: """
 apiVersion: v1
 kind: Pod
-metadata:
-  labels:
-    project: influxdb-collectd-builder
+label: influxdb-collectd-builder
 spec:
   containers:
   - name: influxdb-collectd-builder
