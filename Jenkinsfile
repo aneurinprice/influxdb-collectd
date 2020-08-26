@@ -16,7 +16,7 @@ node('influxdb-builder'){
     stage('Build'){
         container('influxdb-builder'){
             // This is where we build our code.
-            git 'https://github.com/aneurinprice/influxdb-collectd.git'
+            checkout scm
 	    sh "docker build -t test ."
         }
     }
