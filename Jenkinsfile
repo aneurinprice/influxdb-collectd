@@ -16,7 +16,7 @@ node('influxdb-builder'){
     stage('Build'){
         container('influxdb-builder'){
             // This is where we build our code.
-	    sh "docker build -t test ."
+	    sh "pwd ; ls -l ; docker build -t test ."
         }
     }
 }
