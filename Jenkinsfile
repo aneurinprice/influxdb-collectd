@@ -19,10 +19,14 @@ spec:
 """
 )
 
+
+
 {
     node(influxdb) {
-      container('influxdb-collectd-builder') {
-        sh "docker build -t test ."
+      stage('Build') {
+         container('influxdb-collectd-builder') {
+           sh "docker build -t test ."
+         }
       }
     }
 }
