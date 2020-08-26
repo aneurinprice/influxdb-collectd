@@ -9,7 +9,7 @@ spec:
     command:
     - cat
     tty: true
-    volueMounts:
+    volumeMounts:
       - name: DockerSocket
         mountPath: /var/run/docker.sock
   volumes:
