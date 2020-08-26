@@ -9,7 +9,7 @@ podTemplate(
         hostPath: '/var/run/docker.sock'),
     ],
 )
-
+{
 //node = the pod label
 node('influxdb-builder'){
     //container = the container label
@@ -19,4 +19,5 @@ node('influxdb-builder'){
 	    sh "docker build -t test ."
         }
     }
+}
 }
