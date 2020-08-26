@@ -15,7 +15,6 @@ node('influxdb-builder'){
     //container = the container label
     stage('Build'){
         container('influxdb-builder'){
-checkout scm
             // This is where we build our code.
 	    sh "pwd ; ls -l ; docker build -t test ."
         }
