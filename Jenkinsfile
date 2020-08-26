@@ -5,8 +5,8 @@ podTemplate(
         containerTemplate(name: 'influxdb-builder', image: 'docker:dind'),
     ],
     volumes: [
-        hostPathVolume(mountPath: '/var/run/docker.sock'),
-        hostPath: '/var/run/docker.sock',
+        hostPathVolume(mountPath: '/var/run/docker.sock',
+        hostPath: '/var/run/docker.sock'),
     ],
 )
     {
