@@ -12,6 +12,7 @@ podTemplate(
 {
 //node = the pod label
 node('influxdb-builder'){
+checkout scm
     //container = the container label
     stage('Build'){
         container('influxdb-builder'){
