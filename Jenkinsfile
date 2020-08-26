@@ -1,32 +1,23 @@
-podTemplate(yaml: """
-apiVersion: v1
-kind: Pod
-label: influxdb
-spec:
-  containers:
-  - name: influxdb-collectd-builder
-    image: docker:dind
-    command:
-    - cat
-    tty: true
-    volumeMounts:
-      - name: DockerSocket
-        mountPath: /var/run/docker.sock
-  volumes:
-    - name: DockerSocket
-      hostPath:
-        path: /var/run/docker.sock
-"""
-)
+podTemplate(
+    name: 'influxdb-builder',
+    label: 'influxdb-builder',
+    containers: [
+        containerTemplate(name: 'influxdb-builder', image: 'docker:dind'),
+    ],
+    volumes: [
+        hostPathVolume(mountPath: '/var/run/docker.sock',
+        hostPath: '/var/run/docker.sock',
+    ],
 
-
-
-{
-    node(influxdb) {
-      stage('Build') {
-         container('influxdb-collectd-builder') {
-           sh "docker build -t test ."
-         }
-      }
-    }
-}
+    {
+        //node = the pod label
+        node('influxdb-builder'){
+            //container = the container label
+            stage('Build'){
+                container('influxdb-builder'){
+                    // This is where we build our code.
+		    sh "docker build -t test ."
+                }
+            }
+        }
+    })
