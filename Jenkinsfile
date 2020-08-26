@@ -13,8 +13,11 @@ podTemplate(
 //node = the pod label
 node('influxdb-builder'){
     //container = the container label
+    stage('Checkout') {
+        checkout scm
+   }
+
     stage('Build'){
-            checkout scm
         container('influxdb-builder'){
             // This is where we build our code.
 	    sh "docker build -t test ."
