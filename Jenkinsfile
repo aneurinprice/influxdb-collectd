@@ -1,7 +1,7 @@
 podTemplate(yaml: """
 apiVersion: v1
 kind: Pod
-label: influxdb-collectd-builder
+label: influxdb
 spec:
   containers:
   - name: influxdb-collectd-builder
@@ -20,7 +20,7 @@ spec:
 )
 
 {
-    node(influxdb-collectd-builder) {
+    node(influxdb) {
       container('influxdb-collectd-builder') {
         sh "docker build -t test ."
       }
