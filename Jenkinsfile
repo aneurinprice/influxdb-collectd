@@ -2,7 +2,7 @@ podTemplate(
     name: 'influxdb-builder',
     label: 'influxdb-builder',
     containers: [
-        containerTemplate(name: 'influxdb-builder', image: 'docker:dind', resourceLimitCpu: '8000m', resourceLimitMemory: '2048Mi', resourceRequestCpu: '8000m', resourceRequestMemory: '2048Mi'),
+        containerTemplate(name: 'influxdb-builder', image: 'docker:dind', resourceLimitCpu: '4', resourceLimitMemory: '2048Mi', resourceRequestCpu: '4', resourceRequestMemory: '2048Mi'),
     ],
     volumes: [
         hostPathVolume(mountPath: '/var/run/docker.sock',
