@@ -10,7 +10,7 @@
 
 
 ## Docker Image ##
-`docker pull registry.nyeprice.space/influxdb-collectd/influxdb-collectd:latest`
+`registry.nyeprice.space/influxdb-collectd/influxdb-collectd:latest`
 
 ## Current Issues: ##
  
